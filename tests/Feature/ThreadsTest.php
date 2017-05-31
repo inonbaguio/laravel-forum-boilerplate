@@ -10,13 +10,19 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class ThreadsTest extends TestCase
 {
 
-    use DatabaseMigration;
+    use DatabaseMigrations;
 
     /** @test */
     public function a_user_can_browse_threads()
     {
+        $thread = factory('App\Thread')->create();
+
         $response = $this->get('/threads');
 
-        $response->assetStatus(200);
+        $response->assertSee($thread->title);
+
+        $response = $this->get('/threads/' . $thread->id);
+
+        $response->assertSee($thread->title);
     }
 }
