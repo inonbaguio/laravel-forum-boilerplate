@@ -37,7 +37,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="/threads">Threads</a>
+                            <a href="/threads">All Threads</a>
                         </li>
                     </ul>
 
