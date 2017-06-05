@@ -10,7 +10,7 @@ class ThreadsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'showThread']);
+        $this->middleware('auth')->except(['index', 'show']);
     }
     /**
      * Display a listing of the resource.
@@ -58,7 +58,7 @@ class ThreadsController extends Controller
      * @param  \App\Thread  $thread
      * @return \Illuminate\Http\Response
      */
-    public function showThread($channelId, Thread $thread)
+    public function show($channelId, Thread $thread)
     {
         return view('threads.show', compact('thread'));
     }
