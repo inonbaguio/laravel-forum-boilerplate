@@ -23,6 +23,11 @@ class Thread extends Model
         return $this->hasMany(\App\Reply::class);
     }
 
+    public function scopeFilter($query, $filters)
+    {
+        return $filters->apply($query);
+    }
+
     public function creator()
     {
         return $this->belongsTo(\App\User::class, 'user_id');
